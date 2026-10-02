@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#05070f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Portfolio — Abduirahman Soliman</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Amiri:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="personal.css">
+</head>
+<body class="preload">
+
+<!-- ====== LOADING SYNC ====== -->
+<div class="sync-loader" id="syncLoader">
+  <div class="sync-spinner"></div>
+  <p>جاري تحميل البيانات...</p>
+</div>
+
+<!-- ====== ANIMATED BACKGROUND ====== -->
+<div class="bg-canvas">
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ====== WELCOME OVERLAY ====== -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-box">
+    <div class="welcome-content">
+      <div class="welcome-icon"><i class="fas fa-mosque"></i></div>
+      <div class="welcome-bismillah">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</div>
+      <div class="welcome-divider"></div>
+      <div class="welcome-ayah">وَقُلْ رَبِّ زِدْنِي عِلْمًا</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SIDE NOTIFICATIONS ====== -->
+<div class="side-notif-container" id="sideNotifContainer" style="display:none">
+  <div class="side-notif" id="sideNotif1">
+    <button class="close-side" onclick="closeSideNotif(1)"><i class="fas fa-times"></i></button>
+    <div class="notif-salah">
+      صلَّى على نبينا محمد
+      <small>صلى الله عليه وسلم</small>
+    </div>
+  </div>
+  <div class="side-notif" id="sideNotif2">
+    <button class="close-side" onclick="closeSideNotif(2)"><i class="fas fa-times"></i></button>
+    <div class="notif-bismillah">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</div>
+    <div class="notif-ayah">إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُمْ بِغَيْرِ حِسَابٍ</div>
+    <div class="notif-dedication">
+      برجاء الدعاء للجدي المرحوم<br>
+      <strong>عبد الفتاح سليمان</strong>
+      <span class="hint">فضلاً وليس أمراً</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SETTINGS BUTTON ====== -->
+<button class="settings-btn" onclick="openPasswordModal()" title="الإعدادات" aria-label="الإعدادات">
+  <i class="fas fa-sliders-h"></i>
+</button>
+
+<!-- ====== NAVIGATION ====== -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="logo"><i class="fas fa-code"></i></span>
+    <span class="txt">Portfolio</span>
+  </div>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="القائمة">
+    <i class="fas fa-bars"></i>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage(1)" class="active" data-page="1">الرئيسية</a></li>
+    <li><a href="#" onclick="showPage(2)" data-page="2">الخبرات</a></li>
+    <li><a href="#" onclick="showPage(3)" data-page="3">المشاريع</a></li>
+    <li><a href="#" onclick="showPage(4)" data-page="4">تواصل معي</a></li>
+  </ul>
+</nav>
+
+<!-- ====== PAGE 1 — HERO ====== -->
+<div class="page active" id="page1">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          متاح للعمل الحر والمشاريع
+        </div>
+        <h1 class="hero-name">
+          مرحباً، أنا <span class="grad" id="profileName">Abdulrahman Soliman</span>
+        </h1>
+        <p class="hero-role">
+          <span class="typed" id="profileSpec">مطور Full Stack</span>
+        </p>
+        <p class="hero-desc">
+          أصنع تجارب رقمية استثنائية — من واجهات مستخدم أنيقة وسريعة إلى أنظمة خلفية قوية وآمنة. شغفي هو تحويل الأفكار إلى منتجات حقيقية تلامس المستخدم.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+            <span class="num" id="profileExpNum">7+</span>
+            <span class="lbl">سنوات خبرة</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-user"></i></div>
+            <span class="num" id="profileAgeNum">25</span>
+            <span class="lbl">سنة</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+            <span class="num">50+</span>
+            <span class="lbl">مشروع منجز</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#" onclick="showPage(3)" class="btn-primary">
+            <i class="fas fa-folder-open"></i> استعرض المشاريع
+          </a>
+          <a href="#" onclick="showPage(4)" class="btn-ghost">
+            <i class="fas fa-paper-plane"></i> تواصل معي
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-wrap">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <img id="profileImg" src="https://cdn.discordapp.com/attachments/1555225661189390428/1555292777007554561/ChatGPT_Image_Oct_1_2026_09_42_15_PM_1_4_1.png?backend=b2&ex=6ac0a785&is=6abf5605&hm=1a3b0a7c524b5fac0ece0ffd189223caafdceb77b6c7e31fae1b6c099b12a986&" alt="Profile">
+          </div>
+          <div class="floating-chip chip-1"><i class="fas fa-bolt"></i> سريع</div>
+          <div class="floating-chip chip-2"><i class="fas fa-shield-alt"></i> آمن</div>
+          <div class="floating-chip chip-3"><i class="fas fa-star"></i> احترافي</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SOCIAL BAR ====== -->
+<div class="social-bar">
+  <a href="https://www.facebook.com/abdlrhman.soliman.2025?locale=ar_AR" target="_blank" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/___3b_d0?stkn=bnNxejM4ODdxamJihttps://www.instagram.com/___3b_d0?stkn=bnNxejM4ODdxamJi" target="_blank" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/201555305900" target="_blank" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://www.tiktok.com/@3bdo_021?_r=1&_t=ZS-9ACDG4DTiEA" target="_blank" class="tt" title="TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+
+<!-- ====== PAGE 2 — SKILLS ====== -->
+<div class="page" id="page2">
+  <div class="container">
+    <div class="page-head">
+      <span class="eyebrow"><i class="fas fa-code"></i> Tech Stack</span>
+      <h2>الخبرات <span class="grad">والمهارات</span></h2>
+      <p>مجموعة من التقنيات والأدوات التي أستخدمها يومياً لبناء منتجات رقمية عالية الجودة.</p>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</div>
+
+<!-- ====== PAGE 3 — PROJECTS ====== -->
+<div class="page" id="page3">
+  <div class="container">
+    <div class="page-head">
+      <span class="eyebrow"><i class="fas fa-folder-open"></i> Portfolio</span>
+      <h2>المشاريع <span class="grad">المختارة</span></h2>
+      <p>مشاريع حقيقية قمت بتصميمها وتطويرها — من الفكرة إلى مشاريع رقمية عالية الجودة .</p>
+    </div>
+    <div id="projectsContainer"></div>
+  </div>
+</div>
+
+<!-- ====== PAGE 4 — CONTACT ====== -->
+<div class="page" id="page4">
+  <div class="container">
+    <div class="page-head">
+      <span class="eyebrow"><i class="fas fa-paper-plane"></i> Get In Touch</span>
+      <h2>تواصل <span class="grad">معي</span></h2>
+      <p>لدي فكرة مشروع؟ أو ترغب في التعاون؟ أنا هنا للمساعدة.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="panel">
+        <div class="panel-title">
+          <span class="icon-box"><i class="fas fa-paper-plane"></i></span>
+          أرسل رسالة
+        </div>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="field">
+            <label>الاسم الكامل</label>
+            <input type="text" id="cName" placeholder="اكتب اسمك" required>
+          </div>
+          <div class="field">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="cEmail" placeholder="example@email.com" required>
+          </div>
+          <div class="field">
+            <label>الرسالة</label>
+            <textarea id="cMessage" placeholder="أخبرني عن مشروعك أو فكرتك..." required></textarea>
+          </div>
+          <button type="submit" class="submit">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+        </form>
+      </div>
+      <div class="panel">
+        <div class="panel-title">
+          <span class="icon-box"><i class="fas fa-address-card"></i></span>
+          معلومات التواصل
+        </div>
+
+        <a class="info-row" id="linkWa" href="#" target="_blank">
+          <div class="info-icon wa"><i class="fab fa-whatsapp"></i></div>
+          <div class="info-text">
+            <span class="lbl">واتساب</span>
+            <span class="val">WhatsApp</span>
+          </div>
+        </a>
+        <a class="info-row" id="linkFb" href="#" target="_blank">
+          <div class="info-icon fb"><i class="fab fa-facebook-f"></i></div>
+          <div class="info-text">
+            <span class="lbl">فيسبوك</span>
+            <span class="val">Facebook</span>
+          </div>
+        </a>
+        <a class="info-row" id="linkIg" href="#" target="_blank">
+          <div class="info-icon ig"><i class="fab fa-instagram"></i></div>
+          <div class="info-text">
+            <span class="lbl">إنستجرام</span>
+            <span class="val">Instagram</span>
+          </div>
+        </a>
+        <a class="info-row" id="linkTt" href="#" target="_blank">
+          <div class="info-icon tt"><i class="fab fa-tiktok"></i></div>
+          <div class="info-text">
+            <span class="lbl">تيك توك</span>
+            <span class="val">TikTok</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PASSWORD MODAL ====== -->
+<div class="modal" id="passwordModal">
+  <div class="modal-card">
+    <h3><i class="fas fa-lock"></i> الدخول للوحة التحكم</h3>
+    <p class="sub">أدخل كلمة المرور للوصول إلى لوحة إدارة المحتوى.</p>
+    <input type="password" id="passwordInput" placeholder="كلمة المرور" onkeydown="if(event.key==='Enter')checkPassword()">
+    <div class="modal-actions">
+      <button class="btn-confirm" onclick="checkPassword()">دخول</button>
+      <button class="btn-cancel" onclick="closeModal()">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== DASHBOARD ====== -->
+<div class="dashboard" id="dashboard">
+  <div class="dash-top">
+    <h2><i class="fas fa-sliders-h"></i> لوحة التحكم</h2>
+    <button class="dash-action danger" onclick="closeDashboard()"><i class="fas fa-times"></i> خروج</button>
+  </div>
+  <div class="dash-tabs">
+    <button class="dash-tab active" onclick="showDashTab(1)">تعديل الرئيسية</button>
+    <button class="dash-tab" onclick="showDashTab(2)">إدارة الخبرات</button>
+    <button class="dash-tab" onclick="showDashTab(3)">إدارة المشاريع</button>
+    <button class="dash-tab" onclick="showDashTab(4)">صندوق الرسائل</button>
+  </div>
+
+  <div class="dash-panel active" id="dashPanel1">
+    <h3><i class="fas fa-user-edit"></i> بيانات الصفحة الرئيسية</h3>
+    <input class="dash-field" id="dName" placeholder="الاسم">
+    <input class="dash-field" id="dAge" placeholder="السن (مثال: 25)">
+    <input class="dash-field" id="dSpec" placeholder="التخصص">
+    <input class="dash-field" id="dExp" placeholder="سنوات الخبرة (مثال: 5+)">
+    <input class="dash-field" id="dImg" placeholder="رابط الصورة">
+    <input class="dash-field" id="dFb" placeholder="رابط فيسبوك">
+    <input class="dash-field" id="dIg" placeholder="رابط إنستجرام">
+    <input class="dash-field" id="dWa" placeholder="رابط واتساب">
+    <input class="dash-field" id="dTt" placeholder="رابط تيك توك">
+    <button class="dash-action" onclick="savePage1()"><i class="fas fa-save"></i> حفظ التعديلات</button>
+  </div>
+
+  <div class="dash-panel" id="dashPanel2">
+    <h3><i class="fas fa-plus-circle"></i> إضافة خبرة جديدة</h3>
+    <input class="dash-field" id="skillName" placeholder="اسم الخبرة (مثال: React.js)">
+    <input class="dash-field" id="skillIcon" placeholder="أيقونة FontAwesome (مثال: fab fa-react)">
+    <input class="dash-field" id="skillPercent" type="number" min="1" max="100" placeholder="النسبة %">
+    <button class="dash-action" onclick="addSkill()"><i class="fas fa-plus"></i> إضافة</button>
+    <h3 style="margin-top:36px"><i class="fas fa-list"></i> الخبرات الحالية</h3>
+    <div id="skillsList"></div>
+  </div>
+
+  <div class="dash-panel" id="dashPanel3">
+    <h3><i class="fas fa-plus-circle"></i> إضافة مشروع جديد</h3>
+    <input class="dash-field" id="projTitle" placeholder="عنوان المشروع">
+    <input class="dash-field" id="projDesc" placeholder="وصف المشروع">
+    <input class="dash-field" id="projLink" placeholder="رابط المشروع">
+    <input class="dash-field" id="projImg1" placeholder="رابط الصورة 1">
+    <input class="dash-field" id="projImg2" placeholder="رابط الصورة 2">
+    <input class="dash-field" id="projImg3" placeholder="رابط الصورة 3">
+    <select class="dash-field" id="projCat">
+      <option value="website">مواقع الويب سايت (front end - back end)</option>
+      <option value="system">الأنظمة للأعمال الإدارية</option>
+      <option value="frontend">تصاميم واجهات الويب سايت (front end)</option>
+    </select>
+    <button class="dash-action" onclick="addProject()"><i class="fas fa-plus"></i> إضافة مشروع</button>
+    <h3 style="margin-top:36px"><i class="fas fa-list"></i> المشاريع الحالية</h3>
+    <div id="projectsList"></div>
+  </div>
+
+  <div class="dash-panel" id="dashPanel4">
+    <h3><i class="fas fa-inbox"></i> الرسائل الواردة</h3>
+    <div id="messagesList"></div>
+  </div>
+</div>
+
+<!-- ====== TOAST ====== -->
+<div class="toast" id="toast"></div>
+
+<script src="personal.js"></script>
+</body>
+</html>
